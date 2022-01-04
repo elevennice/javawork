@@ -1,1 +1,118 @@
+package 第10次作业;
 
+public class 课后练习11_8 {
+	public static void main(String[] args) {
+		Account ac = new Account("George",1122,1000);
+		ac.setAnnualInterestRate(1.5);
+		ac.deposit(30);
+		ac.deposit(40);
+		ac.deposit(50);
+		ac.withDraw(5);
+		ac.withDraw(4);
+		ac.withDraw(2);
+		System.out.print("name: ");
+		System.out.println(ac.getName());
+		System.out.print("AnnualInterestRate: ");
+		System.out.println(ac.getAnnualInterestRate() + "%");
+		System.out.print("Balance: ");
+		System.out.println(ac.getBalance());
+		System.out.println();
+		System.out.printf("%-35s%-14s%-16s%-15s\n","Date","type","amount","balance");
+		java.util.ArrayList<Transaction> list = ac.getTransaction();
+		
+		for(int i = 0;i < list.size() ;i++) {
+			System.out.printf("%-35s%-14s%-16s%-15s\n",list.get(i).getDate(),list.get(i).getType(),list.get(i).getAmount(),list.get(i).getBalance());
+		}
+	}
+}
+
+
+import java.util.ArrayList; 
+import java.util.Random; 
+import java.util.Scanner;
+public class 课后练习11_16 {
+    public static void main(String[] args) {
+        Random rand = new Random();
+        int number1 = rand.nextInt(10);
+        int number2 = rand.nextInt(10);
+        Scanner input = new Scanner(System.in);
+        System.out.println("what is " + number1 +"+" + number2 +"?");
+        ArrayList<Integer> answer = new ArrayList<>();
+        answer.add(input.nextInt());
+        while(!answer.contains(number1 + number2)) {
+            System.out.println("wrong answer.try again. what is " + number1 + "+" + number2 +"?");
+            answer.add(input.nextInt());
+        }
+        System.out.println("you got it !");
+    }
+}
+
+
+import java.util.Scanner;
+
+public class 课后练习11_17 {
+
+	public static void main(String[] args) {
+		int i,n=1,m;
+		int[] numbers=new int[100];
+		for(i=0;i<100;i++) {
+			numbers[i]=0;
+		}
+		Scanner input=new Scanner(System.in);
+		System.out.print("Enter an integer m: ");
+		int number=input.nextInt();
+		m=number;
+		for(i=2;i<Math.sqrt(1.0*number)+1;i++){
+			if(m%i==0) {
+				numbers[i]+=1;
+				m/=i;
+				i-=1;
+			}
+		}
+		for(i=0;i<100;i++) {
+			if(numbers[i]%2==1)
+				n=n*i;
+		}
+		System.out.print("The smallest number n for m * n to be a perfect square is "+n);
+		System.out.print("\nm * n is "+n*number);
+	}
+
+}
+
+import java.util.Scanner;
+
+public class 课后练习11_19 {
+
+	public static void main(String[] args) {
+		int i,j;
+		int[][] numbers=new int[100][12];
+		for(i=0;i<100;i++) {
+			for(j=0;j<12;j++)
+				numbers[i][j]=0;
+		}
+		Scanner input=new Scanner(System.in);
+		System.out.print("Enter the number of objects: ");
+		int number=input.nextInt();
+		System.out.print("Enter the weights of the objects: ");
+		for(i=0;i<number;i++) {
+			int m=input.nextInt();
+			for(j=1;j<100;j++) {
+				if(numbers[j][0]+m<=10) {
+					numbers[j][++numbers[j][11]]=m;
+					numbers[j][0]+=m;
+					break;
+				}
+			}
+		}
+		for(i=1;i<100;i++) {
+			if(numbers[i][0]!=0) {
+				System.out.print("Container "+i+" contains objects with weight ");
+				for(j=1;j<11&&numbers[i][j]!=0;j++) {
+					System.out.print(numbers[i][j]+" ");
+				}
+				System.out.print("\n");
+			}
+		}
+	}
+
+}
