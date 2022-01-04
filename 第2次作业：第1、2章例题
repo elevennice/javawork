@@ -1,0 +1,33 @@
+package 第2次作业;
+
+public class 程序清单1_1 {
+		public static void main(String[] args) {
+			System.out.println("welcome to Java!");
+		}
+}
+
+public class 程序清单1_2 {
+	public static void main(String[] args) {
+		System.out.println("Programming is fun!");
+		System.out.println("Fundamentals First");
+		System.out.println("Problem Driven");
+	}
+}
+
+public class 程序清单1_3 {
+	public static void main(String[] args) {
+		System.out.print("(10.5 + 2 * 3) / (45 - 3.5) = ");
+		System.out.println((10.5 + 2 * 3) / (45 - 3.5));
+	}
+}
+
+public class 程序清单1_4 {
+//	public static main(String[] args) {
+		//案例错误 应改为static void main
+	public static void main(String[] args) {
+//		System.out.println("Welcome to Java);
+		//案例错误 双引号少了一个
+		System.out.println("Welcome to Java");
+
+	}
+}
