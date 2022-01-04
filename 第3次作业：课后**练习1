@@ -1,0 +1,732 @@
+package 第3次作业;
+
+public class 课后练习3_4 {
+	public static void main(String[] args) {
+		int a = (int)(Math.random() * 12 + 1);
+		System.out.println(a);
+		switch (a) {
+		case 1 : System.out.println("January");break;
+		case 2 : System.out.println("February");break;
+		case 3 : System.out.println("March");break;
+		case 4 : System.out.println("April");break;
+		case 5 : System.out.println("May");break;
+		case 6 : System.out.println("June");break;
+		case 7 : System.out.println("July");break;
+		case 8 : System.out.println("August");break;
+		case 9 : System.out.println("September");break;
+		case 10 : System.out.println("October");break;
+		case 11 : System.out.println("November");break;
+		case 12 : System.out.println("December");break;
+		}
+	}
+}
+
+import java.util.Scanner;
+public class 课后练习3_9 {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);		
+		System.out.print("Enter the first 9 digits of an ISBN as integer: ");
+		int num = input.nextInt();
+		int num2=num;
+		int d10=0;
+		for(int i=9;i>0;i--) {
+			d10+=(num%10)*i;
+			num/=10;
+		}
+		System.out.print("The ISBN-10 number is "+num2);
+		if(d10%11!=10)
+			System.out.print(d10%11);
+		else
+			System.out.print("X");
+	}
+
+}
+
+import java.util.Scanner;
+
+public class 课后练习3_15 {
+
+	public static void main(String[] args) {
+		int x=(int)(Math.random()*1000);
+		System.out.print("输入一个三位整数：");
+		Scanner input=new Scanner(System.in);
+		int num=input.nextInt();
+		System.out.println(x);
+		int t,i;
+		int c=num%10;
+		int b=(int)(num/10)%10;
+		int a=(int)(num/100)%10;
+		
+		if(a>b)
+		{
+		  t=a;
+		  a=b;
+		  b=t;
+		}
+		if(a>c)
+		{
+			  t=c;
+			  c=a;
+			  a=t;
+		}
+		if(b>c)
+		{
+			t=b;
+			b=c;
+			c=t;
+		}
+		int C=x%10;
+		int B=(int)(x/10)%10;
+		int A=(int)(x/100)%10;
+		if(A>B)
+		{
+		  t=A;
+		  A=B;
+		  B=t;
+		}
+		if(A>C)
+		{
+			  t=C;
+			  C=A;
+			  A=t;
+		}
+		if(B>C)
+		{
+			t=B;
+			B=C;
+			C=t;
+		}
+		
+		int []array= {a,b,c};
+			
+		if(x==num)
+			System.out.println("赢得10000美元！");
+		else if(a==A&&b==B&&c==C)
+			System.out.println("赢得3000美元！");
+		else
+		{
+			for(i=0;i<3;i++)
+			{
+				if(array[i]==A||array[i]==B||array[i]==C)
+				{
+					System.out.println("赢得1000美元！");
+					break;
+				}
+				else
+				{
+					System.out.println("未获奖•••");
+					break;
+				}
+			}
+		}
+		input.close();
+
+	}
+
+}
+
+import java.util.Scanner;
+
+public class 课后练习3_19 {
+
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		int a=input.nextInt();
+		int b=input.nextInt();
+		int c=input.nextInt();
+		if(a+b>c&&a+c>b&&b+c>a) 
+		{
+			System.out.println(a+b+c);
+		}
+		else
+			System.out.println("输入不合法！");
+
+	}
+}
+
+import java.util.Scanner;
+public class 课后练习3_21 {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);		
+		System.out.print("Enter year: (e.g., 2012): ");
+		int year = input.nextInt();
+		System.out.print("Enter month: 1-12: ");
+		int month = input.nextInt();
+		System.out.print("Enter the day of the month: 1-31: ");
+		int day = input.nextInt();
+		int q,m,h,j,k;
+		q=day;
+		if(month==1||month==2) {
+			 m=12+month;
+			 year--;
+		}
+		else 
+			 m=month;
+	         j=year/100;
+		     k=year%100;
+		h=(q+26*(m+1)/10+k+k/4+j/4+5*j)%7;
+		String[] weeklist= {"Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday"};
+		System.out.print("Day of the week is "+weeklist[h]);
+    }
+     }
+     
+   public class 课后练习3_22 {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);		
+		System.out.print("Enter a point with two coordinates: ");
+		double x = input.nextDouble();
+		double y = input.nextDouble();
+		double d;
+		d=Math.sqrt(x*x+y*y);
+		if(d<=10)
+			System.out.printf("Point (%.1f, %.1f) is  in the circle",x,y);
+		else
+			System.out.printf("Point (%.1f, %.1f) is not in the circle",x,y);
+	}
+}
+ 
+import java.util.Scanner;
+public class 课后练习3_23 {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter s point with two coordinates: ");
+		double x = Math.abs(input.nextDouble());
+		double y = Math.abs(input.nextDouble());
+		if(x <= 5 && y <= 2.5) {
+			System.out.print("point (" + x + ", " + y + ") is in the rectangle");
+		}
+		else {
+			System.out.print("point (" + x + ", " + y + ") is not in the rectangle");
+		}
+	}
+}
+
+public class 课后练习3_24 {
+
+	public static void main(String[] args) {
+		int x=(int)(1+Math.random()*53);
+		if(x>0&&x<=40)
+		{
+			if(x<=10)
+			{
+				if(x==1)
+					System.out.println("你抽到的是黑梅花Ace");
+				else
+					System.out.println("你抽到的是黑梅花"+x);
+			}
+			else if(x<=20)
+			{
+				if(x==11)
+					System.out.println("你抽到的是红方块Ace");
+				else
+				{
+					x-=10;
+					System.out.println("你抽到的是红方块"+x);
+				}
+			}
+			else if(x<=30)
+					{
+						if(x==21)
+							System.out.println("你抽到的是红心Ace");
+						else
+						{
+							x-=20;
+							System.out.println("你抽到的是红心"+x);
+						}
+					}
+			else
+			{
+				if(x==31)
+					System.out.println("你抽到的是黑桃Ace");
+				else
+				{
+					x-=30;
+					System.out.println("你抽到的是黑桃"+x);
+				}
+			}
+
+	}
+		else
+		{
+			x-=40;
+			if(x>0&&x<=3)
+			{
+				if(x%3==1)
+					System.out.println("你抽到的是黑梅花j");
+				else if(x%3==2)
+					System.out.println("你抽到的是黑梅花q");
+				else
+					System.out.println("你抽到的是黑梅花k");
+			}
+			else if(x<=6)
+			{
+				if(x%3==1)
+					System.out.println("你抽到的是红方块j");
+				else if(x%3==2)
+					System.out.println("你抽到的是红方块q");
+				else
+					System.out.println("你抽到的是红方块k");
+			}
+			else if(x<=9)
+			{
+				if(x%3==1)
+					System.out.println("你抽到的是红心j");
+				else if(x%3==2)
+					System.out.println("你抽到的是红心q");
+				else
+					System.out.println("你抽到的是红心k");
+			}
+			else 
+			{
+				if(x%3==1)
+					System.out.println("你抽到的是黑桃j");
+				else if(x%3==2)
+					System.out.println("你抽到的是黑桃q");
+				else
+					System.out.println("你抽到的是黑桃k");
+			}
+		}
+
+}
+}
+
+import java.util.Scanner;
+
+public class 课后练习3_27 {
+
+	public static void main(String[] args) {
+		System.out.print("输入x、y：");
+		Scanner input=new Scanner(System.in);
+		double x=input.nextDouble();
+		double y=input.nextDouble();
+		if(x>=0&&x<=200&&y>=0&&y<=100&&0.5*x+y<=100)
+		{
+			System.out.println("这个点在三角形内");
+		}
+		else 
+			System.out.println("这个点不在三角形内");
+	}
+
+}
+
+import java.util.Scanner;
+
+public class 课后练习3_28 {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);		
+		System.out.print("Enter r1's center x- and y-coordinates, width, and height: ");
+		double x1 = input.nextDouble();
+		double y1 = input.nextDouble();
+		double w1 = input.nextDouble();
+		double h1 = input.nextDouble();
+		System.out.print("Enter r2's center x- and y-coordinates, width, and height: ");
+		double x2 = input.nextDouble();
+		double y2 = input.nextDouble();
+		double w2 = input.nextDouble();
+		double h2 = input.nextDouble();		
+		if(x2-w2/2>=x1-w1/2&&x2+w2/2<=x1+w1/2&&y2+h2/2<=y1+h1/2&&y2-h2/2>=y1-h1/2)
+			System.out.printf("r2 is inside r1");
+		else if(x2-w2/2>=x1+w1/2||x2+w2/2<=x1-w1/2||y2+h2/2<=y1-h1/2||y2-h2/2>=y1+h1/2)
+			System.out.printf("r2 does not overlap r1");
+		else
+			System.out.printf("r2 overlaps r1");	
+	}
+
+}
+
+import java.util.Scanner;
+
+public class课后练习3_29 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);		
+		System.out.print("Enter circle1's center x- and y-coordinates, and radius: ");
+		double x1 = input.nextDouble();
+		double y1 = input.nextDouble();
+		double r1 = input.nextDouble();
+		System.out.print("Enter circle2's center x- and y-coordinates, and radius: ");
+		double x2 = input.nextDouble();
+		double y2 = input.nextDouble();
+		double r2 = input.nextDouble();	
+		if(Math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2))<Math.abs(r1-r2))
+			System.out.printf("circle2 is inside circle1");
+		else if(Math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2))<r1+r2)
+			System.out.printf("circle2 overlaps circle1");
+		else
+			System.out.printf("circle2 does not overlap circle1");
+	}
+
+}
+
+public class 课后练习5_7 {
+	public static void main(String[] args) {
+		double a = 10000;
+		double m = 0;
+		for(int i = 1; i <= 14;i++) {
+			a = a * 1.05;
+			if(i == 10) {
+				System.out.println("The tuition in ten years is :" + a);
+			}
+			if(i >= 11) {
+				m = m + a;
+			}
+		}
+		System.out.println("The total cost of four years’ worth of tuition after the tenth year "+ m);
+	}
+}
+
+import java.util.Scanner;
+public class 课后练习5_17 {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter an integer 1-15: ");
+		int a = input.nextInt();
+		for(int i = 1; i <= a; i++) {
+			for(int j = 1; j <= a - i; j++) {
+					System.out.print("    ");
+				}
+			if(i <= 9 && a > 9) {
+				System.out.print(" ");
+			}
+			for(int h = i; h >= 1; h--) {
+					if(h == i) {
+						System.out.print(h);	
+					}
+					else {
+						System.out.printf("%4d",h);	
+					}
+				}
+			for(int o = 2; o < i; o++) {
+					System.out.printf("%4d",o);	
+				}
+			if(i > 1) {
+					System.out.println("   " + i);	
+				}
+			if(i == 1) {
+					System.out.println();	
+				}
+		}
+	}
+}
+
+public class 课后练习5_19 {
+		public static void main(String[] args) {
+			for(int i = 1;i <= 8; i++) {
+					for(int j = 1; j <= 8 - i; j++) {
+						System.out.print("    ");	
+					}
+					System.out.print("1");
+					if(i == 1) {
+						System.out.println();
+					}
+					for(int h = 2; h <= i; h++) {
+						System.out.printf("%4d",(int)(Math.pow(2, h-1)));	
+					}
+					for(int o = i-1; o > 1; o--) {
+						System.out.printf("%4d",(int)(Math.pow(2, o-1)));	
+					}
+					if(i > 1) {
+					System.out.println("   1");
+					}
+				}
+			}
+}
+
+import java.util.Scanner;
+public class 课后练习5_21 {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);		
+		System.out.print("Loan Amount: ");
+		double loan = input.nextDouble();
+		System.out.print("Number of Years: ");
+		double year = input.nextDouble();	
+		double a,b,c;
+		System.out.print("Interest Rate    Monthly Payment    Total Payment\n");	
+		for(int i=0;i<=24;i++) {
+		 a=(5+i/8.0)*0.01/12;	 		 
+		 b=loan*a/(1-1/Math.pow(1+a,12*year));
+		 c=b*year*12;
+		System.out.printf("%.3f%%           %.2f             %.2f\n",5+i/8.0,b,c);
+		}
+	}
+}
+
+import java.util.Scanner;
+public class 课后练习5_22 {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);		
+		System.out.print("Loan Amount: ");
+		double loan = input.nextDouble();
+		System.out.print("Number of Years: ");
+		double year = input.nextDouble();	
+		System.out.print("Annual Interest Rate: ");
+		double annualrate = input.nextDouble();
+		double monthrate=annualrate/1200;
+		double monthpay=loan*monthrate/(1-1/Math.pow(1+monthrate,12*year));
+		double totalpay=monthpay*12*year;
+		double interest,principal,balance=loan;
+		System.out.printf("Monthly Payment: %.2f\nTotal Payment: %.2f\nPayment#    Interest    Pricipal    Balance\n",monthpay,totalpay);	
+		for(int i=1;i<=12*year;i++) {
+		 interest=balance*monthrate;	 		 
+		 principal=monthpay-interest;
+		 balance=balance-principal;
+		System.out.printf("%-4d%13.2f%13.2f%13.2f\n",i,interest,principal,balance);
+		}
+	}
+
+}
+
+public class 课后练习5_25 {
+
+	public static void main(String[] args) {
+		int i,j;
+		double pi,sum;
+		for(i=10000;i<=100000;i=i+10000)
+		{
+			sum=0;
+			for(j=1;j<=i;j++)
+			{
+				sum=sum+Math.pow(-1, j+1)/(2*j-1);
+			}
+			pi=4*sum;
+			System.out.println(pi);
+		}
+	}
+
+public class 课后练习5_26 {
+
+	public static void main(String[] args) {
+		int i,j;
+		double k;
+		double sum;
+		for(i=10000;i<=100000;i=i+10000)
+		{
+			sum=2;
+			k=1;
+			for(j=2;j<i;j++)
+			{
+				k=k*j;
+				sum=sum+1.0/k;
+			}
+			System.out.println(sum);
+		}
+	}
+}
+
+public class 课后练习5_27 {
+	public static void main(String[] args) {
+		int num=0;
+		for(int i=101;i<=2100;i++) {
+			if((i%4==0&&i%100!=0)||i%400==0) {
+				System.out.print(i+" ");
+				num++;
+				if(num%10==0) 
+					System.out.print("\n");
+			}
+		}
+			System.out.printf("\nThe number of leap year is "+num);
+	}
+}
+
+import java.util.Scanner;
+public class 课后练习5_28 {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);		
+		System.out.print("The Year: ");
+		int year = input.nextInt();
+		System.out.print("What day is the first day: ");
+		int dayweek = input.nextInt()-1;
+		int loap=0;
+		if((year%4==0&&year%100!=0)||year%400==0) 
+			loap=1;
+		int[] list1= {31,28,31,30,31,30,31,31,30,31,30,31};
+		String[] list3= {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
+		String[] list2= {"January","February","March","April","May","June","July","August","September","October","November","December"};
+		for(int i=0;i<12;i++) {	
+			System.out.printf(list2[i]+" 1, "+year+" is "+list3[dayweek]+"\n");
+			dayweek=(dayweek+list1[i])%7;
+			if(i==1) dayweek=(dayweek+loap)%7;
+		}
+	}
+
+}
+
+import java.util.Scanner;
+
+public class 课后练习5_29 {
+	//page194
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter a year: ");
+		int year = input.nextInt();
+		System.out.print("What day is it of the week: ");
+		int week = input.nextInt();
+		for(int i = 1;i <= 12;i++) {
+			switch(i) {
+			case 1:System.out.println("\t\t" + "January"+ year +"\t\t");System.out.println("——————————————————————");break;
+			case 2:System.out.print("\t\t" + "February" + year + "\t\t");System.out.println("——————————————————————");break;
+			case 3:System.out.print("\t\t" + "March" + year + "\t\t");System.out.println("——————————————————————");break;
+			case 4:System.out.print("April 1 , " + year + " is ");break;
+			case 5:System.out.print("May 1 , " + year + " is ");break;
+			case 6:System.out.print("June 1 , " + year + " is ");break;
+			case 7:System.out.print("July 1 , " + year + " is ");break;
+			case 8:System.out.print("August 1 , " + year + " is ");break;
+			case 9:System.out.print("September 1 , " + year + " is ");break;
+			case 10:System.out.print("October 1 , " + year + " is ");break;
+			case 11:System.out.print("November 1 , " + year + " is ");break;
+			case 12:System.out.print("December 1 , " + year + " is ");break;
+			}
+			if(i == 1|| i == 3 || i == 5 || i == 7 || i == 8 || i == 10 ||i == 12) {
+				week = (week + 31) % 7;
+			}
+			else if(i == 2){
+				if((year % 4 == 0 && year % 100 != 0)|| year % 400 ==0) {
+					week = (week + 29) % 7;
+				}
+				else{
+					week = (week + 28) % 7;
+				}
+			}
+			else {
+				week = (week + 30) % 7;
+			}
+		}
+		
+	}
+}
+
+import java.util.Scanner;
+public class 课后练习5_32 {
+
+	public static void main(String[] args) {
+		 int lottery = (int) (Math.random() * 100);
+	        while(lottery / 10 == lottery % 10)
+	            lottery = (int) (Math.random() * 100);
+	        Scanner input = new Scanner(System.in);
+	        System.out.print("Enter your lottery pick (two digits): ");
+	        int guess = input.nextInt();
+	        int lotteryDigit1 = lottery / 10;
+	        int lotteryDigit2 = lottery % 10;
+	        int guessDigit1 = guess / 10;
+	        int guessDigit2 = guess % 10;
+	        System.out.println("The lottery number is " + lottery);
+	        if (guess == lottery)
+	            System.out.println("Exact match: you win $10,000");
+	        else if (guessDigit2 == lotteryDigit1 && guessDigit1 == lotteryDigit2)
+	            System.out.println("Match all digits: you win $3,000");
+	        else if (guessDigit1 == lotteryDigit1 || guessDigit1 == lotteryDigit2 || guessDigit2 == lotteryDigit1
+	                || guessDigit2 == lotteryDigit2)
+	            System.out.println("Match one digit: you win $1,000");
+	        else
+	            System.out.println("Sorry, no match");
+	}
+
+}
+
+public class 课后练习5_33 {
+	public static void main(String[] args) {
+		System.out.println("10000以内的完数如下：");
+		fun();
+	}
+
+	public static void fun(){
+		for(int i=1;i<=10000;i++){
+			int factor=0; 
+
+			for(int j=1;j<i/2+1;j++){ 
+				if(i%j==0)
+					factor+=j;
+			}
+			if(factor==i)
+				System.out.println("  "+i);
+		}
+	}
+}
+
+import java.util.Scanner;
+public class 课后练习5_36 {
+	public static void main(String[] args) {
+		Scanner input  = new Scanner(System.in);
+		System.out.print("Enter the first 9 digits of an ISBN as integer : ");
+		int a = input.nextInt();
+		int m = 0;
+		int[] b = new int[1000];
+		for(int i = 9;i >= 1 ;i--) {
+			b[i] = a % 10;
+			a = a / 10;
+			m = m + b[i] * i;
+		}
+		m = m % 11;
+		System.out.print("The ISBN-10 number is ");
+		for(int i = 1;i <= 9 ;i++) {
+			System.out.print(b[i]);
+		}
+		if(m == 10) {
+			System.out.println("X");
+		}
+		else {
+			System.out.println(m);
+	}
+	}
+}
+
+import java.util.Scanner;
+public class 课后练习5_37 {
+	public static void main(String[] args) {
+		System.out.print("Enter a decimal integer： ");
+		Scanner input = new Scanner(System.in);
+		int a = input.nextInt();
+		int []b = new int[1000];
+		int n = 0;
+		while(a > 0) {
+			n = n + 1;
+			b[n] = a % 2;
+			a = a / 2;
+		}
+		System.out.print("The binary of this number is ");
+		for(int i = n;i >= 1;i--) {
+			System.out.print(b[i]);
+		}
+	}
+}
+
+import java.util.Scanner;
+public class 课后练习5_38 {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);		
+		System.out.print("Enter a number: ");
+		int x = input.nextInt();
+		int y=0,r,i=0;
+		while(x>0) {
+			r=x%8;
+			y+=r*Math.pow(10,i++);
+			x/=8;
+		}
+			System.out.printf("The number in octal is "+y);
+	}
+}
+
+import java.util.Scanner;
+public class课后练习5_45 {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);		
+		System.out.print("Enter 10 numbers: ");
+		double aver,deviation,sum1=0,sum2=0,n;
+		for(int i=1;i<=10;i++) {
+			n = input.nextDouble();
+			sum1+=n;
+			sum2+=n*n;
+		}		
+		aver=sum1/10;
+		deviation=Math.sqrt((sum2-sum1*sum1/10)/9);
+			System.out.printf("The mean is %.2f",aver);		
+			System.out.printf("\nThe standard deviation is %.5f",deviation);
+	}
+}
