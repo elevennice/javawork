@@ -1,1 +1,180 @@
+package 第7次作业;
+import java.util.Date;
+public class 课后练习9_3 {
+	Date date = new Date();
+	
+	public void setDate(int n) {
+		date.setTime(n);
+	}
+	
+	public void getDate() {
+		System.out.print(date.toString());
+	}
+	
+	public static void main(String[] args) {
+		Date date = new Date();
+		for(long i = 10000; i <= 1e10;i=i*10) {
+	            date.setTime(i);
+	            System.out.println(date.toString());
+	        }
+	}
+}
+
+import java.util.Random;
+public class 课后练习9_4 {
+	public static void main(String[] args) {
+		Random myrandom=new Random(1000);
+		for(int i=0;i<50;i++) {
+			System.out.print(myrandom.nextInt(100)+"\n");
+		}
+	}}
+
+import java.util.GregorianCalendar;
+public class 课后练习9_5 {
+
+	public static void main(String[] args) {
+		GregorianCalendar ymd=new GregorianCalendar();
+		int y=ymd.get(GregorianCalendar.YEAR);
+		int m=ymd.get(GregorianCalendar.MONTH)+1;  
+		int d=ymd.get(GregorianCalendar.DAY_OF_YEAR);
+		System.out.println("Now year is "+y+", month is "+m+", Day of year is "+d);
+		ymd.setTimeInMillis(1234567898765L);
+		 y=ymd.get(GregorianCalendar.YEAR);
+		 m=ymd.get(GregorianCalendar.MONTH)+1;
+		 d=ymd.get(GregorianCalendar.DAY_OF_YEAR);
+		System.out.println("year is "+y+", month is "+m+", Day of year is "+d);
+	}
+}
+
+// 课后练习9_6
+public class StopWatch {
+	private long startTime,endTime;
+	StopWatch (){
+		startTime= System.currentTimeMillis();
+	}
+	public void start() {
+		startTime= System.currentTimeMillis();
+	}
+	public void stop() {
+		endTime= System.currentTimeMillis();
+	}
+	public long getElapsedTime() {
+		return -(startTime-endTime);
+	}
+	public static void main(String[] args) {
+		StopWatch myStopWatch =new StopWatch();
+		int[] A = new int[100000];
+		int i;
+		for(i=0;i<100000;i++)
+			A[i]=((int)(Math.random()*10000000)) % 10000;
+		myStopWatch.start();
+		for(i=0;i<100000;i++) {
+			int max=i;
+			for(int j=i+1;j<100000;j++)
+			{
+			if(A[j]>A[max])
+			max=j;
+			}
+			int temp=A[max];
+			A[max]=A[i];
+			A[i]=temp;
+			}
+		myStopWatch.stop();
+		System.out.println("排序时间（ms）："+myStopWatch.getElapsedTime());
+		
+	}
+}
+
+import java.util.Scanner;
+public class 课后练习9_10 {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter a, b, c: ");
+		double a = input.nextDouble();
+		double b = input.nextDouble();
+		double c = input.nextDouble();
+		QuardraticEquation qe = new QuardraticEquation(a,b,c);
+		if(qe.getDiscriminant() == 0) {
+			System.out.print("The equation has one root " + qe.getRoot1());
+		}
+		else if(qe.getDiscriminant() > 0) {
+			System.out.print("The equation has two roots" + qe.getRoot1() + " and " + qe.getRoot2());
+		}
+		else{
+			System.out.print("The equation has no real roots");
+		}
+	}
+}
+class QuardraticEquation{
+	private double a,b,c;
+	public QuardraticEquation(double x,double y,double z) {
+		a = x;
+		b = y;
+		c = z;
+	}
+	public double getA() {
+		return a;
+	}
+	public double getB() {
+		return b;
+	}
+	public double getC() {
+		return c;
+	}
+	public double getDiscriminant() {
+		return b * b - 4 * a * c;
+	}
+	public double getRoot1() {
+		if(getDiscriminant() < 0) {
+			return 0;
+		}
+		return (-b + Math.sqrt(getDiscriminant())) / (2 * a);
+	}
+	public double getRoot2() {
+		if(getDiscriminant() < 0) {
+			return 0;
+		}
+		return (-b - Math.sqrt(getDiscriminant())) / (2 * a);
+	}
+}
+
+
+//课后练习9_11
+import java.util.Scanner;
+
+public class LinearEquation {
+	private double a,b,c,d,e,f;
+	LinearEquation(double newa,double newb,double newc,double newd,double newe,double newf){
+		a=newa;b=newb;c=newc;d=newd;e=newe;f=newf;
+	}
+	public double getA() { return a;}
+	public double getB() { return b;}
+	public double getC() { return c;}
+	public double getD() { return d;}
+	public double getE() { return e;}
+	public double getF() { return f;}
+	public boolean isSolvable() {
+		if(a*d-b*c!=0) return true;
+		return false;
+	}
+	public double getX() { return (e*d-b*f)/(a*d-b*c);}
+	public double getY() { return (a*f-e*c)/(a*d-b*c);}
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		System.out.printf("Enter a, b, c, d, e, f: ");
+		double a=input.nextDouble();
+		double b=input.nextDouble();
+		double c=input.nextDouble();
+		double d=input.nextDouble();
+		double e=input.nextDouble();
+		double f=input.nextDouble();
+		LinearEquation myLinearEquation =new LinearEquation(a,b,c,d,e,f);
+		if(myLinearEquation.isSolvable()==false)
+			System.out.printf("The equation has no solution.");
+		else
+			System.out.printf("x is %.2f and y is %.2f",myLinearEquation.getX(),myLinearEquation.getY());
+	}
+
+}
+
 
